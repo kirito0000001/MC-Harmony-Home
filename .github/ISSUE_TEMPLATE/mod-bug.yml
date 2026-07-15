@@ -1,0 +1,58 @@
+name: Mod bug report
+description: Report a problem in an audited mod build or its integration.
+title: "[Mod Name] "
+labels: ["bug"]
+body:
+  - type: input
+    id: mod
+    attributes:
+      label: Affected mod
+      description: The mod ID or display name shown in Catalogue.
+    validations:
+      required: true
+  - type: input
+    id: build
+    attributes:
+      label: Audited build version
+      placeholder: "Example: 4.0.5-2026Reset"
+    validations:
+      required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft and NeoForge version
+      placeholder: "1.21.1 / NeoForge 21.1.235"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or crash report
+      description: Attach `latest.log`, a crash report, or the relevant excerpt.
+  - type: dropdown
+    id: multiplayer
+    attributes:
+      label: Does this affect multiplayer?
+      options:
+        - Unknown
+        - Client only
+        - Server only
+        - Both client and server

@@ -1,0 +1,30 @@
+{
+  "minecraft": "1.21.1",
+  "loader": {
+    "name": "NeoForge",
+    "version": "21.1.235"
+  },
+  "mods": [
+    {
+      "modId": "justenoughprofessions",
+      "displayName": "Just Enough Professions (JEP)",
+      "version": "4.0.5-2026Reset",
+      "side": "client_only",
+      "source": "https://github.com/Mrbysco/JustEnoughProfessions",
+      "license": "MIT",
+      "distribution": "github_release",
+      "releasePage": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/releases/tag/justenoughprofessions-4.0.5-2026Reset",
+      "sha256": "8D9702B337C2BFF018A3B37896BB07B2F3161BB881D4114C9142A01C86F5DFCC"
+    },
+    {
+      "modId": "codex_catalogue_bridge",
+      "displayName": "Codex Catalogue Bridge",
+      "version": "1.0.0-2026Reset",
+      "side": "client_only",
+      "source": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/tree/main/mods/codex-catalogue-bridge",
+      "license": "All Rights Reserved",
+      "distribution": "github_release",
+      "sha256": "16545736DEAE47E6363FBCC4A9644FD9D12C9B99899C681195D50DA8A05252DE"
+    }
+  ]
+}
