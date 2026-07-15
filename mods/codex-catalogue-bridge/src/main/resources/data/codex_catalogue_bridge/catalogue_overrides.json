@@ -1,0 +1,9 @@
+{
+  "overrides": {
+    "justenoughprofessions": {
+      "alias": null,
+      "homepage": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/tree/main/mods/justenoughprofessions",
+      "issueTracker": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/issues/new?template=mod-bug.yml&title=%5BJust%20Enough%20Professions%5D%20&labels=bug%2Cmod%3Ajustenoughprofessions"
+    }
+  }
+}
