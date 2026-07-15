@@ -17,7 +17,7 @@
 ## 非目标
 
 - 不给没有真实配置界面的模组添加虚假的“配置”按钮；JEP 保持无配置。
-- 不修改原模组的玩法、网络协议、存档、配方或服务端逻辑。
+- 当前阶段不修改原模组的玩法、网络协议、存档、配方或服务端逻辑。
 - 不把许可证不允许再分发的第三方 JAR 上传到公开仓库或 GitHub Release。
 - 不把整个模组包的大型二进制文件直接提交进 Git 历史。
 
@@ -120,6 +120,14 @@ MC和谐家园/
   pack/
     manifest.json
     installation.md
+  profiles/
+    client/
+      manifest.json
+    server/
+      manifest.json
+      installation.md
+      config/
+      mods/
   mods/
     justenoughprofessions/
       README.md
@@ -133,6 +141,8 @@ MC和谐家园/
 ```
 
 `pack/manifest.json` 是完整整合包的单一清单来源。每个模组至少记录：模组 ID、显示名、实例版本、客户端/服务端分类、来源 URL、SHA-256、安装方式和许可证状态。
+
+`profiles/client/manifest.json` 与 `profiles/server/manifest.json` 都由总清单生成。客户端清单包含完整游玩体验所需的内容与客户端辅助；服务器清单只包含已经确认属于 `server_required`、`server_only` 或对应 `library_required` 依赖闭包的模组。`profiles/server/config/` 只保存确认需要随服务端部署的配置，`profiles/server/mods/` 预留为构建出的服务器包内容，不将未核准 JAR 提前放入版本库。
 
 `mods/<modid>/README.md` 是 Website 的落地页，说明用途、兼容性、已完成审查阶段、版本、哈希、来源、许可证、回退路径与下载方式。
 
@@ -148,6 +158,20 @@ MC和谐家园/
 - 每个模组的许可证状态必须先审查后才能改变为“直传”。未知状态默认外部来源。
 
 后续将从 `pack/manifest.json` 生成完整安装说明和 PCL 兼容导入产物；具体导入格式先以 PCL 当前可识别格式实测，不假设某种第三方打包格式一定兼容。
+
+## 服务器专用预留
+
+服务器交付与客户端 Catalogue 桥接补丁完全分离。`codex-catalogue-bridge` 永远是 `client_only`，不进入服务器清单。
+
+为后续服务器优化和运维功能预留独立模块：
+
+```text
+mods/codex-server-ops/
+```
+
+该模块仅在实际需求经过服务器阶段审查后才创建和发布，统一使用 `-2026Reset` 版本标记。它的职责范围限于服务端性能监控、诊断、管理或兼容修复；不得引用 Catalogue、JEI、渲染、按键、HUD 或其他客户端类。
+
+每个接入模组的服务器判断必须记录以下证据：注册内容、事件与 tick、网络频道、专用服务器可加载性、直接依赖与传递依赖。JEP 的 `client_only` 结论同样必须补齐这些证据，不能仅凭其 JEI 定位跳过。
 
 ### 问题反馈
 
@@ -186,3 +210,4 @@ labels: bug, mod:justenoughprofessions
 - Submit Bug 打开同仓库表单，标题前缀为 `[Just Enough Professions]`，并带 JEP 标签。
 - 服务器目录不含 JEP 或桥接补丁。
 - `pack/manifest.json` 能完整列出当前已审查模组及其安装来源。
+- `profiles/server/manifest.json` 只包含已审查确认的服务端模组和依赖闭包；客户端专用模组不会进入服务器包。
