@@ -44,7 +44,7 @@ Expected: Gradle reports that the project or `MixinMetadataTest` does not yet ex
 
 - [ ] **Step 3: Create the minimal NeoForge project**
 
-Set `version = '1.0.0-2026Reset'`, `archivesName = 'codex-catalogue-bridge'`, Java toolchain 21, NeoForge `21.1.235`, and test dependencies matching the existing `codex-loot-rarity-ui` project. Use this metadata:
+Set `version = '1.0.0-2026Reset'`, `archivesName = 'codex-catalogue-bridge'`, Java toolchain 21, NeoForge `21.1.235`, and test dependencies matching the existing `codex-loot-rarity-ui` project. Define `catalogueJar` as `D:/其他应用/Minecraft/.minecraft/versions/1.21.1-NeoForge_21.1.235/mods/[模组目录] catalogue-neoforge-1.21.1-1.11.2.jar`, fail configuration when it is absent, and add `compileOnly files(catalogueJar)` so the two Mixin target classes compile without bundling Catalogue. Use this metadata:
 
 ```toml
 [[mods]]
