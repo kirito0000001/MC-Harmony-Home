@@ -2,7 +2,7 @@
 
 检查对象：`Catalogue 1.11.2-2026Reset` 与 `Codex Catalogue Bridge 1.0.1-2026Reset`
 
-结论：运行验证通过，准备发布。
+结论：运行验证通过，已发布。
 
 ## 客户端验证
 
@@ -20,6 +20,6 @@
 
 ## 发布范围
 
-- 发布 Catalogue `1.11.2-2026Reset`，许可证 MIT。
-- 发布 Codex Catalogue Bridge `1.0.1-2026Reset`，仅客户端使用。
+- 已发布 [Catalogue 1.11.2-2026Reset](https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/catalogue-1.11.2-2026Reset)，许可证 MIT。
+- 已发布 [Codex Catalogue Bridge 1.0.1-2026Reset](https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/codex-catalogue-bridge-1.0.1-2026Reset)，仅客户端使用。
 - 不发布到服务器配置，也不改变世界、存档、配方或网络协议。

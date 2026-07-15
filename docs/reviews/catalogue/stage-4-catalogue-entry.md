@@ -28,4 +28,4 @@ Catalogue Bridge 为模组 ID `catalogue` 配置了：
 - `CatalogueOverridesTest` 已验证 `catalogue` 覆盖项、网页链接、BUG 标题和双语介绍。
 - Bridge 的完整 `clean test build --offline` 通过。
 - Bridge 最终 SHA-256：`02376A0565BC19FC95392585D42483208F64D945D390BF1DDCA1B369B3F8875F`。
-- 候选 JAR 未安装、未发布；在所有阶段结束后再统一创建 Release 与上传。
+- 已完成客户端安装验证并创建对应 GitHub Release。
