@@ -1,4 +1,5 @@
 {
   "fml.menu.mods.info.description.justenoughprofessions": "Adds a JEI profession browser that shows each villager profession and its matching job-site blocks.",
-  "fml.menu.mods.info.description.catalogue": "Replaces the NeoForge mod list with a searchable catalogue for viewing mod details, links, filters, favorites, and update status."
+  "fml.menu.mods.info.description.catalogue": "Replaces the NeoForge mod list with a searchable catalogue for viewing mod details, links, filters, favorites, and update status.",
+  "fml.menu.mods.info.description.jeed": "Adds JEI, REI, and EMI pages that explain status effects, their sources, and their behavior."
 }

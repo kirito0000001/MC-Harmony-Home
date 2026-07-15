@@ -1,9 +1,9 @@
 {
   "modId": "codex_catalogue_bridge",
-  "version": "1.0.1-2026Reset",
-  "asset": "codex-catalogue-bridge-1.0.1-2026Reset.jar",
-  "releasePage": "https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/codex-catalogue-bridge-1.0.1-2026Reset",
-  "sha256": "02376A0565BC19FC95392585D42483208F64D945D390BF1DDCA1B369B3F8875F",
+  "version": "1.0.2-2026Reset",
+  "asset": "codex-catalogue-bridge-1.0.2-2026Reset.jar",
+  "releasePage": "https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/codex-catalogue-bridge-1.0.2-2026Reset",
+  "sha256": "F3206287B2D85A2FCCAC69E7121A2CC4CCB7ECBB4182E9DD6C3F5A286F6540FE",
   "license": "All Rights Reserved",
   "source": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/codex-catalogue-bridge"
 }

@@ -29,6 +29,26 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredJeedOverrideExposesProjectLinksAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("jeed").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals(
+            "https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed",
+            entry.homepage()
+        );
+        assertTrue(entry.issueTracker().contains("title=%5BJEED%5D%20"));
+        assertEquals(
+            "Adds JEI, REI, and EMI pages that explain status effects, their sources, and their behavior.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.jeed").getAsString()
+        );
+        assertEquals(
+            "为 JEI、REI 和 EMI 补充状态效果说明页，\n展示效果来源、作用与相关信息。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.jeed").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }

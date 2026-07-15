@@ -1,4 +1,5 @@
 {
   "fml.menu.mods.info.description.justenoughprofessions": "在JEI中加入村民职业浏览页，\n展示每种职业及其对应的工作方块。",
-  "fml.menu.mods.info.description.catalogue": "将 NeoForge 原版模组列表替换为可搜索的目录，\n集中查看模组信息、链接、筛选、收藏和更新状态。"
+  "fml.menu.mods.info.description.catalogue": "将 NeoForge 原版模组列表替换为可搜索的目录，\n集中查看模组信息、链接、筛选、收藏和更新状态。",
+  "fml.menu.mods.info.description.jeed": "为 JEI、REI 和 EMI 补充状态效果说明页，\n展示效果来源、作用与相关信息。"
 }
