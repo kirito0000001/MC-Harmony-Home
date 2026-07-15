@@ -1,24 +1,26 @@
 # JEED 阶段六：运行与发布
 
-当前状态：候选已构建，等待批次运行验证。
+当前状态：源码候选已构建，等待十个模组一次的运行验证批次；进度为 `3 / 10`。
 
 ## 候选文件
 
-- JEED 本地资源补丁候选：`jeed-1.21-2.3.2-2026Reset.jar`（仅保留在本机审查工作区）
-- SHA-256：`034B5035B1778DEC84AE0EF8BBB8D3EE5407512948EC050215A6E790A2949493`
-- 校验：53 个 class 文件与原 JAR 完全一致；仅更新 `assets/jeed/lang/zh_cn.json` 与 `META-INF/neoforge.mods.toml`。
-- Catalogue Bridge：`mods/codex-catalogue-bridge/build/libs/codex-catalogue-bridge-1.0.2-2026Reset.jar`
-- SHA-256：`F3206287B2D85A2FCCAC69E7121A2CC4CCB7ECBB4182E9DD6C3F5A286F6540FE`
+- 文件：`jeed-1.21-2.3.2-2026Reset.jar`
+- 位置：仅在本地审查工作区的 `mods/jeed/neoforge/build/libs/` 中。
+- `META-INF/neoforge.mods.toml` 内版本：`1.21-2.3.2-2026Reset`。
+- SHA-256：`E8F0913E53679A2FA2EC98674BD12B095BD2E738A9B6B8E65D085BFAA3C10325`。
+- 包含双语 JEED 资源、阶段一的五项正确性修复，以及可复现构建所需的作用域仓库配置。
+- 未安装到正在使用的 Minecraft 实例。
 
 ## 批次验证要求
 
-达到 `10 / 10` 后，关闭游戏、备份当前 JEED 与 Bridge JAR，再安装上述候选并验证：
+批次达到 `10 / 10` 后，关闭游戏，备份当前 JEED 与 Catalogue Bridge JAR，再一同安装候选并验证：
 
-- 游戏启动日志没有 JEED、JEI、Catalogue 或 Mixin 错误。
+- 启动日志没有 JEED、JEI、Catalogue 或 Mixin 错误。
 - JEI 的药水与状态效果页面显示补充说明。
-- 背包中的状态效果图标可以正常悬浮和点击。
-- Catalogue 中 JEED 的中英文介绍、网页和“提交问题”链接正确。
+- 支持的界面中，状态效果图标可以悬浮和点击；没有查看器插件时不会影响原本点击。
+- 缺失描述显示 JEED 回退文本，而非原始翻译键。
+- Catalogue 正确显示 JEED 的中英文介绍、网页链接和问题反馈链接。
 
-## 发布限制
+## 发布边界
 
-上游仓库没有可验证的完整公开再分发许可证文本，故此候选仅作为本地补丁使用。公开仓库只保留 [JEED 2026Reset 补丁](../../../patches/jeed-1.21-2.3.2-2026Reset.patch)，不包含上游源码或完整 JAR；未经上游作者明确授权，不上传 JEED 完整 JAR 至 GitHub Release。
+此次审查尚未验证上游具备完整的公开再分发授权。公开仓库可以包含文本补丁和审查记录，但不包含 JEED 上游源码或完整 JEED JAR；上游授权明确前，不为此候选创建 GitHub Release。
