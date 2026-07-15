@@ -8,6 +8,8 @@
 
 **Tech Stack:** Java 21 source toolchain on NeoForge 21.1.235, Gradle ModDev 2.0.91, SpongePowered Mixin, JUnit 5, Gson, GitHub CLI, GitHub Releases.
 
+**Windows build path:** NeoForge ModDev 2.0.91 cannot load JUnit classes from the Unicode project path `D:\MC和谐家园`. Before every Gradle command, map `R:` to that folder with `subst R: "D:\MC和谐家园"` and run Gradle from the equivalent `R:\` path. Keep the repository itself at its user-chosen D: path.
+
 ---
 
 ### Task 1: Establish a Reproducible Bridge Mod Project

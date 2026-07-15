@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "codex_catalogue_bridge"
+version = "${file.jarVersion}"
+displayName = "Codex Catalogue Bridge"
+description = "Client-only Catalogue labels, links, and title-layout bridge."
+
+[[mixins]]
+config = "codex_catalogue_bridge.mixins.json"
+
+[[dependencies.codex_catalogue_bridge]]
+modId = "catalogue"
+type = "required"
+versionRange = "[1.11.2,1.12)"
+ordering = "NONE"
+side = "CLIENT"

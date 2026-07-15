@@ -1,0 +1,41 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.91'
+}
+
+group = 'com.codex.minecraft'
+version = '1.0.0-2026Reset'
+
+base {
+    archivesName = 'codex-catalogue-bridge'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+neoForge {
+    version = '21.1.235'
+}
+
+def catalogueJar = file('D:/其他应用/Minecraft/.minecraft/versions/1.21.1-NeoForge_21.1.235/mods/[模组目录] catalogue-neoforge-1.21.1-1.11.2.jar')
+if (!catalogueJar.isFile()) {
+    throw new GradleException("Catalogue 1.11.2 JAR is required at ${catalogueJar}")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly files(catalogueJar)
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'com.google.code.gson:gson:2.10.1'
+}
+
+tasks.named('test', Test).configure {
+    useJUnitPlatform()
+}
