@@ -1,6 +1,5 @@
 package com.codex.minecraft.cataloguebridge;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.google.gson.JsonArray;
@@ -10,19 +9,17 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 
-class MixinMetadataTest {
+class MixinTargetTest {
     @Test
-    void mixinConfigurationTargetsOnlyClientClasses() {
-        JsonObject config = readJson("/codex_catalogue_bridge.mixins.json");
-        assertEquals("com.codex.minecraft.cataloguebridge.mixin", config.get("package").getAsString());
-
-        JsonArray clientMixins = config.getAsJsonArray("client");
-        assertTrue(clientMixins != null);
+    void mixinConfigurationNamesTheTwoNarrowCatalogueTargets() {
+        JsonArray clientMixins = readJson("/codex_catalogue_bridge.mixins.json").getAsJsonArray("client");
+        assertTrue(clientMixins.toString().contains("NeoForgeModDataMixin"));
+        assertTrue(clientMixins.toString().contains("CatalogueModListScreenMixin"));
     }
 
     private static JsonObject readJson(String resource) {
         try (InputStreamReader reader = new InputStreamReader(
-            MixinMetadataTest.class.getResourceAsStream(resource),
+            MixinTargetTest.class.getResourceAsStream(resource),
             StandardCharsets.UTF_8
         )) {
             return JsonParser.parseReader(reader).getAsJsonObject();
