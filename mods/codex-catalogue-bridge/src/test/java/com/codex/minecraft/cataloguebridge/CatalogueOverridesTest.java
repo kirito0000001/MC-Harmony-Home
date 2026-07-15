@@ -31,7 +31,7 @@ class CatalogueOverridesTest {
             readLanguage("en_us").get("fml.menu.mods.info.description.justenoughprofessions").getAsString()
         );
         assertEquals(
-            "在 JEI 中加入村民职业浏览页，展示每种职业及其对应的工作方块。",
+            "在JEI中加入村民职业浏览页，\n展示每种职业及其对应的工作方块。",
             readLanguage("zh_cn").get("fml.menu.mods.info.description.justenoughprofessions").getAsString()
         );
     }
