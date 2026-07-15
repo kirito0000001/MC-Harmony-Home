@@ -365,7 +365,7 @@ Get-FileHash -Algorithm SHA256 .\mods\codex-catalogue-bridge\build\libs\codex-ca
 Run:
 
 ```powershell
-gh repo create 'kirito0000001/MC和谐家园' --public --source . --remote origin --disable-wiki
+gh repo create 'kirito0000001/MC-Harmony-Home' --public --source . --remote origin --disable-wiki
 git -c http.proxy= -c https.proxy= push -u origin main
 ```
 
@@ -376,19 +376,19 @@ Expected: GitHub returns the new repository URL, and `origin/main` points to the
 Run:
 
 ```powershell
-gh label create 'bug' --color 'd73a4a' --repo 'kirito0000001/MC和谐家园'
-gh label create 'mod:justenoughprofessions' --color '1d76db' --repo 'kirito0000001/MC和谐家园'
-gh release create 'justenoughprofessions-4.0.5-2026Reset' 'C:\Users\liuyu\Documents\Codex\2026-06-14\files-mentioned-by-the-user-codex\.work\mod-audit\JustEnoughProfessions-neoforge-build\build\libs\JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar#JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar' --repo 'kirito0000001/MC和谐家园' --title 'Just Enough Professions 4.0.5-2026Reset' --notes 'Client-only optimization build. See mods/justenoughprofessions/README.md for source, license, hash, and rollback details.'
+gh label create 'bug' --color 'd73a4a' --repo 'kirito0000001/MC-Harmony-Home'
+gh label create 'mod:justenoughprofessions' --color '1d76db' --repo 'kirito0000001/MC-Harmony-Home'
+gh release create 'justenoughprofessions-4.0.5-2026Reset' 'C:\Users\liuyu\Documents\Codex\2026-06-14\files-mentioned-by-the-user-codex\.work\mod-audit\JustEnoughProfessions-neoforge-build\build\libs\JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar#JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar' --repo 'kirito0000001/MC-Harmony-Home' --title 'Just Enough Professions 4.0.5-2026Reset' --notes 'Client-only optimization build. See mods/justenoughprofessions/README.md for source, license, hash, and rollback details.'
 ```
 
-If label creation reports an existing label, inspect it with `gh label list --repo 'kirito0000001/MC和谐家园'` and continue only when its name and color match the command.
+If label creation reports an existing label, inspect it with `gh label list --repo 'kirito0000001/MC-Harmony-Home'` and continue only when its name and color match the command.
 
 - [ ] **Step 4: Verify release URLs and push the metadata commit**
 
 Use this fixed release page URL in `release.json` and `pack/manifest.json`:
 
 ```text
-https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/releases/tag/justenoughprofessions-4.0.5-2026Reset
+https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/justenoughprofessions-4.0.5-2026Reset
 ```
 
 Keep `catalogue_overrides.json` pointed at the JEP repository page, not the direct asset download. Run `pwsh -File .\tools\test_manifest.ps1`, then commit and push:
@@ -422,7 +422,7 @@ git status -sb
 git remote -v
 git config --get http.proxy
 git config --get https.proxy
-gh api repos/kirito0000001/MC和谐家园/commits/main --jq '{sha:.sha,message:.commit.message}'
+gh api repos/kirito0000001/MC-Harmony-Home/commits/main --jq '{sha:.sha,message:.commit.message}'
 ```
 
 Expected: clean `main`, `origin` targets the public repository, proxy values remain unchanged, and GitHub reports the latest pushed commit.

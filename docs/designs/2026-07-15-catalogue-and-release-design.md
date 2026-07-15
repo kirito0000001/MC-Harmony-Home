@@ -2,7 +2,7 @@
 
 ## 目标
 
-为 Minecraft `1.21.1-NeoForge_21.1.235` 整合包建立公开 GitHub 仓库 `kirito0000001/MC和谐家园`，作为已完成审查模组的统一资料、发布和问题反馈入口。
+为 Minecraft `1.21.1-NeoForge_21.1.235` 整合包建立公开 GitHub 仓库 `kirito0000001/MC-Harmony-Home`，作为已完成审查模组的统一资料、发布和问题反馈入口。仓库页面标题使用“MC 和谐家园”。
 
 第一批接入对象为 Just Enough Professions（JEP）`4.0.5-2026Reset`。后续每个模组完成既定审查阶段后，沿用相同流程接入。
 
@@ -63,8 +63,8 @@
 {
   "justenoughprofessions": {
     "alias": null,
-    "homepage": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/tree/main/mods/justenoughprofessions",
-    "issueTracker": "https://github.com/kirito0000001/MC%E5%92%8C%E8%B0%90%E5%AE%B6%E5%9B%AD/issues/new?template=mod-bug.yml&title=%5BJust%20Enough%20Professions%5D%20&labels=bug%2Cmod%3Ajustenoughprofessions"
+    "homepage": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/justenoughprofessions",
+    "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJust%20Enough%20Professions%5D%20&labels=bug%2Cmod%3Ajustenoughprofessions"
   }
 }
 ```
