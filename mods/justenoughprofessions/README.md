@@ -25,6 +25,8 @@
 
 GitHub Release 提供此构建。原版 JAR 备份位于：
 
+[直接下载 Just Enough Professions 4.0.5-2026Reset](https://github.com/kirito0000001/MC-Harmony-Home/releases/download/justenoughprofessions-4.0.5-2026Reset/JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar)
+
 ```text
 D:\其他应用\Minecraft\.minecraft\versions\1.21.1-NeoForge_21.1.235\backups\justenoughprofessions-20260715-2026Reset
 ```

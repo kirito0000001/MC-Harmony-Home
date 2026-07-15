@@ -16,8 +16,8 @@ Minecraft 1.21.1 NeoForge 整合包的审查记录、客户端体验补丁、发
 
 ## 当前已审查模组
 
-- [Just Enough Professions](mods/justenoughprofessions/README.md)：客户端 JEI 职业浏览页，使用 `4.0.5-2026Reset` 优化构建。
-- `codex-catalogue-bridge`：客户端 Catalogue 介绍、链接和长标题适配层。
+- [Just Enough Professions](mods/justenoughprofessions/README.md)：客户端 JEI 职业浏览页，使用 `4.0.5-2026Reset` 优化构建。[下载 JAR](https://github.com/kirito0000001/MC-Harmony-Home/releases/download/justenoughprofessions-4.0.5-2026Reset/JustEnoughProfessions-neoforge-1.21.1-4.0.5-2026Reset.jar)
+- [Codex Catalogue Bridge](mods/codex-catalogue-bridge/README.md)：客户端 Catalogue 介绍、链接和长标题适配层。[下载 JAR](https://github.com/kirito0000001/MC-Harmony-Home/releases/download/codex-catalogue-bridge-1.0.0-2026Reset/codex-catalogue-bridge-1.0.0-2026Reset.jar)
 
 ## 问题反馈
 
