@@ -1,7 +1,6 @@
 param(
     [string[]]$GradleArgs = @('build', '--offline', '--no-daemon'),
-    [string]$JavaHome = 'C:\Users\liuyu\.gradle\jdks\eclipse_adoptium-21-amd64-windows.2',
-    [string]$AsciiBuildRoot = 'D:\MCHarmonyBuild'
+    [string]$JavaHome = 'C:\Users\liuyu\.gradle\jdks\eclipse_adoptium-21-amd64-windows.2'
 )
 
 $root = Split-Path -Parent $PSScriptRoot
@@ -18,21 +17,15 @@ if(-not (Test-Path -LiteralPath $gradle))
     throw "Pinned Gradle 8.10 is unavailable: $gradle"
 }
 
-if(-not (Test-Path -LiteralPath $AsciiBuildRoot))
+if($root -match '[^\x00-\x7F]')
 {
-    New-Item -ItemType Junction -Path $AsciiBuildRoot -Target $root | Out-Null
-}
-
-$target = (Get-Item -LiteralPath $AsciiBuildRoot).Target
-if($target -notcontains $root)
-{
-    throw "$AsciiBuildRoot must be a junction to $root so Gradle tests do not run through a non-ASCII path."
+    throw "Codex Catalogue Bridge must be built from an ASCII-only repository path. Move or rename the repository before running this script."
 }
 
 $env:JAVA_HOME = $JavaHome
 $env:Path = "$JavaHome\bin;$env:Path"
 
-Push-Location -LiteralPath (Join-Path $AsciiBuildRoot 'mods\codex-catalogue-bridge')
+Push-Location -LiteralPath (Join-Path $root 'mods\codex-catalogue-bridge')
 try
 {
     & $gradle @GradleArgs
