@@ -2,6 +2,7 @@
   "profile": "client",
   "mods": [
     "justenoughprofessions",
+    "catalogue",
     "codex_catalogue_bridge"
   ]
 }

@@ -4,14 +4,14 @@
 
 ## 发布构建
 
-- 版本：`1.0.0-2026Reset`
+- 版本：`1.0.1-2026Reset`
 - Minecraft：`1.21.1`
 - NeoForge：`21.1.235`
 - Catalogue：`1.11.2`
 - 加载侧：`client_only`
-- SHA-256：`D774F2A70F4A5BA48AB4621131BAE4B5E5BC599DFA3725FB747B466B1DE3042B`
+- SHA-256：`02376A0565BC19FC95392585D42483208F64D945D390BF1DDCA1B369B3F8875F`
 
-[直接下载 Codex Catalogue Bridge 1.0.0-2026Reset](https://github.com/kirito0000001/MC-Harmony-Home/releases/download/codex-catalogue-bridge-1.0.0-2026Reset/codex-catalogue-bridge-1.0.0-2026Reset.jar)
+[直接下载 Codex Catalogue Bridge 1.0.1-2026Reset](https://github.com/kirito0000001/MC-Harmony-Home/releases/download/codex-catalogue-bridge-1.0.1-2026Reset/codex-catalogue-bridge-1.0.1-2026Reset.jar)
 
 ## 安装
 

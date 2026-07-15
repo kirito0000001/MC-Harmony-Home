@@ -1,0 +1,9 @@
+{
+  "modId": "catalogue",
+  "version": "1.11.2-2026Reset",
+  "asset": "catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar",
+  "releasePage": "https://github.com/kirito0000001/MC-Harmony-Home/releases/tag/catalogue-1.11.2-2026Reset",
+  "sha256": "3B0E87230B9E5DC1A51B9D05D9CD86A2AD40E788E2A721C67780A4E6F0816BC1",
+  "license": "MIT",
+  "source": "https://github.com/MrCrayfish/Catalogue"
+}
