@@ -5,9 +5,9 @@
 ## 候选文件
 
 - 文件：`jeed-1.21-2.3.2-2026Reset.jar`
-- 位置：仅在本地审查工作区的 `mods/jeed/neoforge/build/libs/` 中。
+- 位置：`D:\MC-Harmony-Home\candidates\jeed-1.21-2.3.2-2026Reset.jar`。
 - `META-INF/neoforge.mods.toml` 内版本：`1.21-2.3.2-2026Reset`。
-- SHA-256：`E8F0913E53679A2FA2EC98674BD12B095BD2E738A9B6B8E65D085BFAA3C10325`。
+- SHA-256：`034B5035B1778DEC84AE0EF8BBB8D3EE5407512948EC050215A6E790A2949493`。
 - 包含双语 JEED 资源、阶段一的五项正确性修复，以及可复现构建所需的作用域仓库配置。
 - 未安装到正在使用的 Minecraft 实例。
 
