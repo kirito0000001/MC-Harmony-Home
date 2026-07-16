@@ -103,6 +103,23 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredAppleSkinOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("appleskin").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals("https://github.com/squeek502/AppleSkin", entry.homepage());
+        assertTrue(entry.issueTracker().contains("title=%5BAppleSkin%5D%20"));
+        assertEquals(
+            "Displays food hunger, saturation, exhaustion, and estimated health recovery in tooltips and HUD overlays. Optional server synchronization can provide exact food-state values.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.appleskin").getAsString()
+        );
+        assertEquals(
+            "在物品提示和 HUD 叠加层中显示食物恢复的饥饿值、饱和度、疲劳值及预计生命恢复。\n可选服务器同步可提供更精确的食物状态。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.appleskin").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }
