@@ -24,5 +24,6 @@
   "codex_catalogue_bridge.mousetweaks.order_first": "从前到后",
   "codex_catalogue_bridge.mousetweaks.order_last": "从后到前",
   "fml.menu.mods.info.description.mousetweaks": "为背包和容器提供鼠标拖拽分配、快速转移和滚轮移动等操作。\n使用原版容器点击协议，仅客户端需要。",
-  "fml.menu.mods.info.description.passivesearchbar": "防止创造模式物品栏打开时搜索框自动抢占键盘焦点。\n需要检索时点击搜索框输入；点击其他位置后，键盘输入会回到正常物品栏操作。"
+  "fml.menu.mods.info.description.passivesearchbar": "防止创造模式物品栏打开时搜索框自动抢占键盘焦点。\n需要检索时点击搜索框输入；点击其他位置后，键盘输入会回到正常物品栏操作。",
+  "fml.menu.mods.info.description.durabilitytooltip": "为可损坏物品的提示补充可配置的耐久数值、状态文字或耐久条。\n仅客户端运行，可限制为原版工具或按模组命名空间隐藏。"
 }

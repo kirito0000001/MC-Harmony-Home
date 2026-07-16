@@ -157,6 +157,23 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredDurabilityTooltipOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("durabilitytooltip").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals("https://www.curseforge.com/minecraft/mc-mods/durability-tooltip", entry.homepage());
+        assertTrue(entry.issueTracker().contains("title=%5BDurability%20Tooltip%5D%20"));
+        assertEquals(
+            "Adds configurable durability values, status text, or a bar to damageable item tooltips. Runs on the client and can limit display to vanilla tools or selected mod namespaces.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.durabilitytooltip").getAsString()
+        );
+        assertEquals(
+            "为可损坏物品的提示补充可配置的耐久数值、状态文字或耐久条。\n仅客户端运行，可限制为原版工具或按模组命名空间隐藏。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.durabilitytooltip").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }

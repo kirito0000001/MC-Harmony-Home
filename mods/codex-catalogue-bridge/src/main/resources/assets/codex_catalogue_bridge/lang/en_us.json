@@ -24,5 +24,6 @@
   "codex_catalogue_bridge.mousetweaks.order_first": "First to Last",
   "codex_catalogue_bridge.mousetweaks.order_last": "Last to First",
   "fml.menu.mods.info.description.mousetweaks": "Adds mouse-driven inventory controls including drag distribution, quick movement, and scroll-wheel transfers. It uses the normal container click protocol and is client-side only.",
-  "fml.menu.mods.info.description.passivesearchbar": "Prevents the Creative inventory search box from taking keyboard focus automatically. Click it when you want to search; clicking elsewhere returns focus to normal inventory controls."
+  "fml.menu.mods.info.description.passivesearchbar": "Prevents the Creative inventory search box from taking keyboard focus automatically. Click it when you want to search; clicking elsewhere returns focus to normal inventory controls.",
+  "fml.menu.mods.info.description.durabilitytooltip": "Adds configurable durability values, status text, or a bar to damageable item tooltips. Runs on the client and can limit display to vanilla tools or selected mod namespaces."
 }
