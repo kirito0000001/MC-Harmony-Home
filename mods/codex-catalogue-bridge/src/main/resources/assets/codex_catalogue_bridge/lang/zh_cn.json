@@ -2,5 +2,6 @@
   "fml.menu.mods.info.description.justenoughprofessions": "在JEI中加入村民职业浏览页，\n展示每种职业及其对应的工作方块。",
   "fml.menu.mods.info.description.catalogue": "将 NeoForge 原版模组列表替换为可搜索的目录，\n集中查看模组信息、链接、筛选、收藏和更新状态。",
   "fml.menu.mods.info.description.jeed": "为 JEI、REI 和 EMI 补充状态效果说明页，\n展示效果来源、作用与相关信息。",
-  "fml.menu.mods.info.description.jei": "为原版与已安装模组提供物品、方块、配方和用途的搜索查询，\n支持配方转移、书签与可配置的物品管理功能。"
+  "fml.menu.mods.info.description.jei": "为原版与已安装模组提供物品、方块、配方和用途的搜索查询，\n支持配方转移、书签与可配置的物品管理功能。",
+  "fml.menu.mods.info.description.jeresources": "为 JEI 补充资源生成、生物掉落、战利品箱、村民交易和世界生成信息页，\n仅用于查询展示，不会修改世界或战利品。"
 }

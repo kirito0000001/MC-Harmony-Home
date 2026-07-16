@@ -19,6 +19,11 @@
       "alias": null,
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/jei",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJEI%5D%20&labels=bug%2Cmod%3Ajei"
+    },
+    "jeresources": {
+      "alias": null,
+      "homepage": "https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer",
+      "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJER%5D%20&labels=bug%2Cmod%3Ajeresources"
     }
   }
 }

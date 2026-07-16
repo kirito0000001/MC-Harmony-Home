@@ -12,6 +12,8 @@ This repository must stay in an ASCII-only path. The current canonical root is `
 
 Run `tools\build-codex-catalogue-bridge.ps1`. It sets JDK 21 only for its child process and executes `build --offline --no-daemon`, including the JUnit tests. Do not invoke Gradle manually from an alternate directory.
 
+When supplying a custom `String[]` `GradleArgs` value, use a named argument, for example `-GradleArgs @('test', '--offline', '--no-daemon')`. Positional arguments can bind a later value to `JavaHome`. In interpolated PowerShell strings, write `${count}:` rather than `$count:` when a variable is immediately followed by a colon; otherwise PowerShell treats the colon as part of an invalid variable reference.
+
 ## JEED Source Build
 
 Run `tools\build-jeed-neoforge.ps1` for normal local builds. It uses the same fixed JDK 21 and Gradle 8.10, and defaults to a full offline NeoForge build.

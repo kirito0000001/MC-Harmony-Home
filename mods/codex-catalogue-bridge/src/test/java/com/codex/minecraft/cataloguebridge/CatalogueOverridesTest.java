@@ -66,6 +66,26 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredJerOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("jeresources").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals(
+            "https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer",
+            entry.homepage()
+        );
+        assertTrue(entry.issueTracker().contains("title=%5BJER%5D%20"));
+        assertEquals(
+            "Adds JEI pages for resource generation, mob drops, chest loot, village trades, and world-generation information. It only displays information and does not modify the world or loot.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.jeresources").getAsString()
+        );
+        assertEquals(
+            "为 JEI 补充资源生成、生物掉落、战利品箱、村民交易和世界生成信息页，\n仅用于查询展示，不会修改世界或战利品。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.jeresources").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }
