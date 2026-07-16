@@ -1,52 +1,52 @@
 {
   "overrides": {
     "justenoughprofessions": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.justenoughprofessions",
       "homepage": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/justenoughprofessions",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJust%20Enough%20Professions%5D%20&labels=bug%2Cmod%3Ajustenoughprofessions"
     },
     "catalogue": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.catalogue",
       "homepage": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/catalogue",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BCatalogue%5D%20&labels=bug"
     },
     "jeed": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.jeed",
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/just-enough-effect-descriptions-jeed",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJEED%5D%20&labels=bug%2Cmod%3Ajeed"
     },
     "jei": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.jei",
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/jei",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJEI%5D%20&labels=bug%2Cmod%3Ajei"
     },
     "jeresources": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.jeresources",
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/just-enough-resources-jer",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJER%5D%20&labels=bug%2Cmod%3Ajeresources"
     },
     "jecharacters": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.jecharacters",
       "homepage": "https://github.com/Towdium/JustEnoughCharacters",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BJEC%5D%20&labels=bug%2Cmod%3Ajecharacters"
     },
     "appleskin": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.appleskin",
       "homepage": "https://github.com/squeek502/AppleSkin",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BAppleSkin%5D%20&labels=bug%2Cmod%3Aappleskin"
     },
     "mousetweaks": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.mousetweaks",
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/mouse-tweaks",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BMouse%20Tweaks%5D%20&labels=bug%2Cmod%3Amousetweaks"
     },
     "passivesearchbar": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.passivesearchbar",
       "homepage": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/passivesearchbar",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BPassive%20Search%20Bar%5D%20&labels=bug%2Cmod%3Apassivesearchbar"
     },
     "durabilitytooltip": {
-      "alias": null,
+      "alias": "codex_catalogue_bridge.title.durabilitytooltip",
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/durability-tooltip",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BDurability%20Tooltip%5D%20&labels=bug%2Cmod%3Adurabilitytooltip"
     }

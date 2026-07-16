@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 
 public final class CatalogueOverrides {
     private static final String RESOURCE = "/data/codex_catalogue_bridge/catalogue_overrides.json";
@@ -19,6 +20,26 @@ public final class CatalogueOverrides {
 
     public static Optional<CatalogueOverride> forMod(String modId) {
         return Optional.ofNullable(OVERRIDES.get(modId));
+    }
+
+    public static String localizedDisplayName(
+        String modId,
+        String fallback,
+        Function<String, String> translator
+    ) {
+        return forMod(modId)
+            .flatMap(CatalogueOverride::alias)
+            .map(key -> translatedOrFallback(key, fallback, translator))
+            .orElse(fallback);
+    }
+
+    private static String translatedOrFallback(
+        String key,
+        String fallback,
+        Function<String, String> translator
+    ) {
+        String translated = translator.apply(key);
+        return translated == null || translated.isBlank() || translated.equals(key) ? fallback : translated;
     }
 
     private static Map<String, CatalogueOverride> load() {
