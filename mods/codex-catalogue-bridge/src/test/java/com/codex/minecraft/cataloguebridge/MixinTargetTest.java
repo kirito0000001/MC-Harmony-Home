@@ -7,6 +7,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +32,15 @@ class MixinTargetTest {
             MouseTweaksTranslations.keyFor("Scroll Direction").orElseThrow()
         );
         assertTrue(MouseTweaksTranslations.keyFor("Unknown label").isEmpty());
+    }
+
+    @Test
+    void mouseTweaksConstructorRedirectHandlerIsStatic() throws Exception {
+        String source = Files.readString(Path.of(
+            "src/main/java/com/codex/minecraft/cataloguebridge/mixin/MouseTweaksConfigScreenMixin.java"
+        ));
+
+        assertTrue(source.contains("private static MutableComponent localizeMouseTweaksLiteral(String source)"));
     }
 
     private static JsonObject readJson(String resource) {

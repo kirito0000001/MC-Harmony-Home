@@ -19,7 +19,7 @@ abstract class MouseTweaksConfigScreenMixin {
         ),
         require = 0
     )
-    private MutableComponent localizeMouseTweaksLiteral(String source) {
+    private static MutableComponent localizeMouseTweaksLiteral(String source) {
         return MouseTweaksTranslations.localizeLiteral(source);
     }
 }

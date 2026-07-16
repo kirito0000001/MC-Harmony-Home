@@ -23,9 +23,11 @@
 4. Just Enough Characters `4.5.26-2026Reset`。
 5. AppleSkin `3.0.9-2026Reset`。
 6. Passive Search Bar `1.0.1-2026Reset`。
-7. Codex Catalogue Bridge `1.0.10-2026Reset`，集中包含 JEED、JEI、JER、JEC、AppleSkin、Mouse Tweaks、Passive Search Bar 和 Durability Tooltip 的 Catalogue 覆盖。
+7. Codex Catalogue Bridge `1.0.11-2026Reset`，集中包含 JEED、JEI、JER、JEC、AppleSkin、Mouse Tweaks、Passive Search Bar 和 Durability Tooltip 的 Catalogue 覆盖。
 
 Mouse Tweaks 与 Durability Tooltip 本体没有被替换；它们在本批仅通过最新 Bridge 获得 Catalogue 信息。
+
+首次启动发现 Mouse Tweaks 构造期 Mixin 的静态处理器错误，已只升级 Bridge 到 `1.0.11-2026Reset` 并保留失败版本备份。详情见 [Mouse Tweaks 启动热修复](mousetweaks/runtime-hotfix-20260716.md)。
 
 ## 运行验证
 
