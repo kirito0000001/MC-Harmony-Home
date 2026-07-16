@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_21",
   "client": [
     "NeoForgeModDataMixin",
-    "CatalogueModListScreenMixin"
+    "CatalogueModListScreenMixin",
+    "MouseTweaksConfigScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -5,5 +5,22 @@
   "fml.menu.mods.info.description.jei": "为原版与已安装模组提供物品、方块、配方和用途的搜索查询，\n支持配方转移、书签与可配置的物品管理功能。",
   "fml.menu.mods.info.description.jeresources": "为 JEI 补充资源生成、生物掉落、战利品箱、村民交易和世界生成信息页，\n仅用于查询展示，不会修改世界或战利品。",
   "fml.menu.mods.info.description.jecharacters": "为 JEI 提供全拼与拼音首字母检索，并为已兼容的其他模组搜索界面扩展同样的匹配方式。\n仅客户端生效。",
-  "fml.menu.mods.info.description.appleskin": "在物品提示和 HUD 叠加层中显示食物恢复的饥饿值、饱和度、疲劳值及预计生命恢复。\n可选服务器同步可提供更精确的食物状态。"
+  "fml.menu.mods.info.description.appleskin": "在物品提示和 HUD 叠加层中显示食物恢复的饥饿值、饱和度、疲劳值及预计生命恢复。\n可选服务器同步可提供更精确的食物状态。",
+  "codex_catalogue_bridge.mousetweaks.options": "鼠标优化设置",
+  "codex_catalogue_bridge.mousetweaks.right_drag": "右键拖拽整理",
+  "codex_catalogue_bridge.mousetweaks.wheel_tweak": "滚轮快速转移",
+  "codex_catalogue_bridge.mousetweaks.left_drag_with_item": "手持物品时左键拖拽整理",
+  "codex_catalogue_bridge.mousetweaks.left_drag_empty": "空手时左键拖拽整理",
+  "codex_catalogue_bridge.mousetweaks.search_order": "滚轮转移搜索顺序",
+  "codex_catalogue_bridge.mousetweaks.scroll_direction": "滚轮转移方向",
+  "codex_catalogue_bridge.mousetweaks.scroll_scaling": "滚轮转移数量",
+  "codex_catalogue_bridge.mousetweaks.debug_mode": "调试模式",
+  "codex_catalogue_bridge.mousetweaks.scaling_proportional": "多次滚动可转移多个物品",
+  "codex_catalogue_bridge.mousetweaks.scaling_one": "每次仅转移一个物品（macOS 兼容）",
+  "codex_catalogue_bridge.mousetweaks.direction_down_push": "向下滚动放入，向上滚动取出",
+  "codex_catalogue_bridge.mousetweaks.direction_up_push": "向上滚动放入，向下滚动取出",
+  "codex_catalogue_bridge.mousetweaks.direction_position": "根据鼠标所在物品栏决定方向",
+  "codex_catalogue_bridge.mousetweaks.direction_position_inverted": "根据鼠标所在物品栏决定方向（反向）",
+  "codex_catalogue_bridge.mousetweaks.order_first": "从前到后",
+  "codex_catalogue_bridge.mousetweaks.order_last": "从后到前"
 }

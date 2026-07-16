@@ -1,5 +1,6 @@
 package com.codex.minecraft.cataloguebridge;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.google.gson.JsonArray;
@@ -11,10 +12,24 @@ import org.junit.jupiter.api.Test;
 
 class MixinTargetTest {
     @Test
-    void mixinConfigurationNamesTheTwoNarrowCatalogueTargets() {
+    void mixinConfigurationNamesCatalogueAndOptionalMouseTweaksTargets() {
         JsonArray clientMixins = readJson("/codex_catalogue_bridge.mixins.json").getAsJsonArray("client");
         assertTrue(clientMixins.toString().contains("NeoForgeModDataMixin"));
         assertTrue(clientMixins.toString().contains("CatalogueModListScreenMixin"));
+        assertTrue(clientMixins.toString().contains("MouseTweaksConfigScreenMixin"));
+    }
+
+    @Test
+    void mouseTweaksHardCodedLabelsMapToBridgeTranslationKeys() {
+        assertEquals(
+            "codex_catalogue_bridge.mousetweaks.options",
+            MouseTweaksTranslations.keyFor("Mouse Tweaks Options").orElseThrow()
+        );
+        assertEquals(
+            "codex_catalogue_bridge.mousetweaks.scroll_direction",
+            MouseTweaksTranslations.keyFor("Scroll Direction").orElseThrow()
+        );
+        assertTrue(MouseTweaksTranslations.keyFor("Unknown label").isEmpty());
     }
 
     private static JsonObject readJson(String resource) {
