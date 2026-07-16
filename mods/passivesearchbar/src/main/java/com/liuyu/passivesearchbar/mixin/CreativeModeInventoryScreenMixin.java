@@ -16,7 +16,11 @@ public abstract class CreativeModeInventoryScreenMixin {
 
     @Inject(method = "selectTab", at = @At("TAIL"))
     private void passiveSearchBar$clearAutomaticFocus(CallbackInfo callback) {
+        CreativeModeInventoryScreen screen = (CreativeModeInventoryScreen) (Object) this;
         this.searchBox.setCanLoseFocus(true);
+        if (screen.getFocused() == this.searchBox) {
+            screen.setFocused(null);
+        }
         this.searchBox.setFocused(false);
     }
 
@@ -27,8 +31,20 @@ public abstract class CreativeModeInventoryScreenMixin {
         int button,
         CallbackInfoReturnable<Boolean> callback
     ) {
-        if (SearchBoxFocusPolicy.shouldClearFocus(button, this.searchBox.isMouseOver(mouseX, mouseY))) {
-            this.searchBox.setFocused(false);
+        CreativeModeInventoryScreen screen = (CreativeModeInventoryScreen) (Object) this;
+        switch (SearchBoxFocusPolicy.changeAfterClick(
+            button,
+            this.searchBox.isMouseOver(mouseX, mouseY)
+        )) {
+            case FOCUS_SEARCH -> screen.setFocused(this.searchBox);
+            case CLEAR_SEARCH -> {
+                if (screen.getFocused() == this.searchBox) {
+                    screen.setFocused(null);
+                }
+                this.searchBox.setFocused(false);
+            }
+            case KEEP -> {
+            }
         }
     }
 }

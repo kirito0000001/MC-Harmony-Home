@@ -26,5 +26,13 @@ class CreativeInventoryFocusMixinTest {
 
         assertTrue(source.contains("@At(\"TAIL\")"));
         assertTrue(source.contains("this.searchBox.isMouseOver(mouseX, mouseY)"));
+        assertTrue(source.contains("screen.setFocused(null)"));
+    }
+
+    @Test
+    void synchronizesScreenFocusWhenTheSearchBoxIsClickedAgain() throws IOException {
+        String source = Files.readString(MIXIN_SOURCE);
+
+        assertTrue(source.contains("screen.setFocused(this.searchBox)"));
     }
 }

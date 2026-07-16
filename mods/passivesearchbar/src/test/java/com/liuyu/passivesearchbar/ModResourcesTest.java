@@ -15,7 +15,7 @@ class ModResourcesTest {
 
         var metadata = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
         assertTrue(metadata.contains("modId=\"passivesearchbar\""));
-        assertTrue(metadata.contains("version=\"1.0.1-2026Reset\""));
+        assertTrue(metadata.contains("version=\"1.0.2-2026Reset\""));
         assertTrue(metadata.contains("config=\"passivesearchbar.mixins.json\""));
     }
 }
