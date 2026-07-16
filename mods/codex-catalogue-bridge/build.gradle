@@ -22,8 +22,7 @@ neoForge {
 
 def catalogueJarCandidates = [
     file('../catalogue/neoforge/build/libs/catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar'),
-    file('D:/其他应用/Minecraft/.minecraft/versions/1.21.1-NeoForge_21.1.235/mods/catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar'),
-    file('D:/其他应用/Minecraft/.minecraft/versions/1.21.1-NeoForge_21.1.235/mods/[模组目录] catalogue-neoforge-1.21.1-1.11.2.jar')
+    file('D:/其他应用/Minecraft/.minecraft/versions/1.21.1-NeoForge_21.1.235/mods/[模组目录] catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar')
 ]
 def catalogueJar = catalogueJarCandidates.find { it.isFile() }
 if (catalogueJar == null) {

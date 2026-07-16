@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$SourceJar = 'D:\其他应用\Minecraft\.minecraft\versions\1.21.1-NeoForge_21.1.235\mods\appleskin-neoforge-mc1.21-3.0.9.jar',
+    [string]$SourceJar = 'D:\其他应用\Minecraft\.minecraft\versions\1.21.1-NeoForge_21.1.235\mods\[食物信息显示] appleskin-neoforge-mc1.21-3.0.9-2026Reset.jar',
     [string]$OutputJar = 'D:\MC-Harmony-Home\candidates\appleskin-neoforge-mc1.21-3.0.9-2026Reset.jar'
 )
 

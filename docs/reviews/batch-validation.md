@@ -11,10 +11,12 @@
 5. Just Enough Resources `1.6.0.17-2026Reset` + Bridge `1.0.4-2026Reset` 条目：已安装，待批次游戏内验证。
 6. Just Enough Characters `4.5.26-2026Reset` + Bridge `1.0.5-2026Reset` 条目：已安装，待批次游戏内验证。
 7. AppleSkin `3.0.9-2026Reset` + Bridge `1.0.6-2026Reset` 条目：已安装，待批次游戏内验证。
-8. Mouse Tweaks `2.26.1` + Bridge `1.0.8-2026Reset` 条目与双语配置界面：最新 Bridge 已安装，待批次游戏内验证。
-9. Passive Search Bar `1.0.1-2026Reset` + Bridge `1.0.9-2026Reset` 条目：已安装，待批次游戏内验证。
-10. Durability Tooltip `1.1.6` + Bridge `1.0.10-2026Reset` 条目：最新 Bridge 已安装，待批次游戏内验证。
+8. Mouse Tweaks `2.26.1` + Bridge 条目与双语配置界面：已统一文件名，并移除一份字节完全相同的重复 JAR，待游戏内验证。
+9. Passive Search Bar `1.0.2-2026Reset` + Bridge 条目：已安装焦点同步修复，待验证“打开不抢焦点、点击可输入、点外部失焦、再次点击可输入”。
+10. Durability Tooltip `1.1.6` + Bridge 条目：已统一文件名，待批次游戏内验证。
 
 进度：`10 / 10`。
 
-候选已安装，备份与哈希记录见 [批次一安装记录](batch-1-installation.md)。首次启动的 Mouse Tweaks 构造期 Mixin 已由 Bridge `1.0.11-2026Reset` 修复；下一步重新启动 `1.21.1-NeoForge_21.1.235`，先确认不再出现该 Mixin 错误，再检查模组目录、核心界面和受影响功能；成功后再发布该批构建。
+Bridge `1.0.12-2026Reset` 已安装，为前十个条目提供语言感知标题和分段双语介绍。静态检查确认相关模组 ID 各自只出现一次，新 Bridge 与 Passive Search Bar 的 live 哈希均与候选一致。
+
+下一步重新启动 `1.21.1-NeoForge_21.1.235`：先确认能够进入主菜单，再检查 Catalogue 的十个中英文标题、长介绍滚动、Mouse Tweaks 操作说明，以及 Passive Search Bar 的完整焦点循环。运行验证通过后再发布该批构建。

@@ -1,5 +1,5 @@
 $tool = Join-Path $PSScriptRoot 'quick-mod-intake.ps1'
-$jar = 'D:\MC和谐家园\mods\catalogue\neoforge\build\libs\catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar'
+$jar = 'D:\MC-Harmony-Home\mods\catalogue\neoforge\build\libs\catalogue-neoforge-1.21.1-1.11.2-2026Reset.jar'
 
 if(-not (Test-Path -LiteralPath $tool))
 {

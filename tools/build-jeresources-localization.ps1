@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [string]$SourceJar = 'D:\其他应用\Minecraft\.minecraft\versions\1.21.1-NeoForge_21.1.235\mods\JustEnoughResources-NeoForge-1.21.1-1.6.0.17.jar',
+    [string]$SourceJar = 'D:\其他应用\Minecraft\.minecraft\versions\1.21.1-NeoForge_21.1.235\mods\[JEI资源查询] JustEnoughResources-NeoForge-1.21.1-1.6.0.17-2026Reset.jar',
     [string]$OutputJar = 'D:\MC-Harmony-Home\candidates\JustEnoughResources-NeoForge-1.21.1-1.6.0.17-2026Reset.jar'
 )
 
