@@ -137,6 +137,26 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredPassiveSearchBarOverrideExposesSourcePageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("passivesearchbar").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals(
+            "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/passivesearchbar",
+            entry.homepage()
+        );
+        assertTrue(entry.issueTracker().contains("title=%5BPassive%20Search%20Bar%5D%20"));
+        assertEquals(
+            "Prevents the Creative inventory search box from taking keyboard focus automatically. Click it when you want to search; clicking elsewhere returns focus to normal inventory controls.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.passivesearchbar").getAsString()
+        );
+        assertEquals(
+            "防止创造模式物品栏打开时搜索框自动抢占键盘焦点。\n需要检索时点击搜索框输入；点击其他位置后，键盘输入会回到正常物品栏操作。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.passivesearchbar").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }

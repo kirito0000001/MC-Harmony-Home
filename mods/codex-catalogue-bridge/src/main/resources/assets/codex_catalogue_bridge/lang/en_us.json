@@ -23,5 +23,6 @@
   "codex_catalogue_bridge.mousetweaks.direction_position_inverted": "Inventory Position Aware, Inverted",
   "codex_catalogue_bridge.mousetweaks.order_first": "First to Last",
   "codex_catalogue_bridge.mousetweaks.order_last": "Last to First",
-  "fml.menu.mods.info.description.mousetweaks": "Adds mouse-driven inventory controls including drag distribution, quick movement, and scroll-wheel transfers. It uses the normal container click protocol and is client-side only."
+  "fml.menu.mods.info.description.mousetweaks": "Adds mouse-driven inventory controls including drag distribution, quick movement, and scroll-wheel transfers. It uses the normal container click protocol and is client-side only.",
+  "fml.menu.mods.info.description.passivesearchbar": "Prevents the Creative inventory search box from taking keyboard focus automatically. Click it when you want to search; clicking elsewhere returns focus to normal inventory controls."
 }

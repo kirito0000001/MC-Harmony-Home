@@ -39,6 +39,11 @@
       "alias": null,
       "homepage": "https://www.curseforge.com/minecraft/mc-mods/mouse-tweaks",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BMouse%20Tweaks%5D%20&labels=bug%2Cmod%3Amousetweaks"
+    },
+    "passivesearchbar": {
+      "alias": null,
+      "homepage": "https://github.com/kirito0000001/MC-Harmony-Home/tree/main/mods/passivesearchbar",
+      "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BPassive%20Search%20Bar%5D%20&labels=bug%2Cmod%3Apassivesearchbar"
     }
   }
 }
