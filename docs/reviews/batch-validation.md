@@ -20,3 +20,13 @@
 Bridge `1.0.12-2026Reset` 已安装，为前十个条目提供语言感知标题和分段双语介绍。静态检查确认相关模组 ID 各自只出现一次，新 Bridge 与 Passive Search Bar 的 live 哈希均与候选一致。
 
 下一步重新启动 `1.21.1-NeoForge_21.1.235`：先确认能够进入主菜单，再检查 Catalogue 的十个中英文标题、长介绍滚动、Mouse Tweaks 操作说明，以及 Passive Search Bar 的完整焦点循环。运行验证通过后再发布该批构建。
+
+## 启动诊断工具
+
+`Codex Responsive Loading 1.0.0-2026Reset` 已作为独立客户端模组安装，不计入前十个内容模组的批次编号。
+
+- 候选：`D:\MC-Harmony-Home\candidates\codex-responsive-loading-1.0.0-2026Reset.jar`
+- 游戏文件：`[响应式启动] codex-responsive-loading-1.0.0-2026Reset.jar`
+- SHA-256：`8CE55F4DFCAB15EAD8E49690807A42E75A5F1C7AFEE87F1101544BDE87C3FCA2`
+- 静态验证：完整离线构建和全部 JUnit 测试通过；候选与游戏文件哈希一致，游戏目录中仅有一个同名模组。
+- 运行验证：下次启动后检查 `logs\debug.log` 中的 `[Codex Responsive Loading] START`、`SLOW`、`DONE` 或 `FAILED` 记录。不要在 Windows 提示等待时主动结束进程；日志会指出持续时间较长的资源监听器和阶段。

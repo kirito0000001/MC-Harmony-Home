@@ -22,10 +22,10 @@
 - Create: `mods/codex-responsive-loading/src/main/resources/pack.mcmeta`
 - Create: `tools/build-codex-responsive-loading.ps1`
 
-- [ ] Copy the known Gradle 8.14.2 wrapper binaries from Passive Search Bar.
-- [ ] Add metadata tests requiring client-only dependencies and version `1.0.0-2026Reset`.
-- [ ] Run the pinned build script and confirm the new tests fail before resources exist.
-- [ ] Add the minimal entry point and resources needed to compile.
+- [x] Copy the known Gradle 8.14.2 wrapper binaries from Passive Search Bar.
+- [x] Add metadata tests requiring client-only dependencies and version `1.0.0-2026Reset`.
+- [x] Run the pinned build script and confirm the new tests fail before resources exist.
+- [x] Add the minimal entry point and resources needed to compile.
 
 ### Task 2: Add pure timing and polling policies
 
@@ -35,10 +35,10 @@
 - Test: `mods/codex-responsive-loading/src/test/java/com/codex/minecraft/responsiveloading/ReloadTimingTest.java`
 - Test: `mods/codex-responsive-loading/src/test/java/com/codex/minecraft/responsiveloading/EventPollPolicyTest.java`
 
-- [ ] Add failing tests for prepare/apply accumulation, task counts, five-second slow warnings, and 100-millisecond poll throttling.
-- [ ] Run focused tests and confirm the expected failures.
-- [ ] Implement the minimal thread-safe policy classes.
-- [ ] Run focused tests and confirm they pass.
+- [x] Add failing tests for prepare/apply accumulation, task counts, five-second slow warnings, and 100-millisecond poll throttling.
+- [x] Run focused tests and confirm the expected failures.
+- [x] Implement the minimal thread-safe policy classes.
+- [x] Run focused tests and confirm they pass.
 
 ### Task 3: Wrap resource listeners and log active stalls
 
@@ -49,9 +49,9 @@
 - Create: `mods/codex-responsive-loading/src/main/java/com/codex/minecraft/responsiveloading/mixin/ReloadableResourceManagerMixin.java`
 - Test: `mods/codex-responsive-loading/src/test/java/com/codex/minecraft/responsiveloading/MixinContractTest.java`
 
-- [ ] Add failing source-contract tests for the `SimpleReloadInstance.create` redirect, listener-order preservation, original-executor delegation, and immediate start/slow/done logging.
-- [ ] Implement listener wrappers and the daemon watchdog without changing futures or exceptions.
-- [ ] Run the complete test suite.
+- [x] Add failing source-contract tests for the `SimpleReloadInstance.create` redirect, listener-order preservation, original-executor delegation, and immediate start/slow/done logging.
+- [x] Implement listener wrappers and the daemon watchdog without changing futures or exceptions.
+- [x] Run the complete test suite.
 
 ### Task 4: Add render-thread polling and Windows ghosting protection
 
@@ -60,9 +60,9 @@
 - Create: `mods/codex-responsive-loading/src/main/java/com/codex/minecraft/responsiveloading/WindowsGhosting.java`
 - Test: `mods/codex-responsive-loading/src/test/java/com/codex/minecraft/responsiveloading/WindowResponsivenessContractTest.java`
 
-- [ ] Add failing tests requiring render-thread checks, throttled GLFW polling, Windows-only native invocation, and failure isolation.
-- [ ] Implement boundary polling and the JNA `DisableProcessWindowsGhosting` bridge.
-- [ ] Run all tests and the full offline build.
+- [x] Add failing tests requiring render-thread checks, throttled GLFW polling, Windows-only native invocation, and failure isolation.
+- [x] Implement boundary polling and the JNA `DisableProcessWindowsGhosting` bridge.
+- [x] Run all tests and the full offline build.
 
 ### Task 5: Package and install
 
@@ -71,8 +71,8 @@
 - Modify: live `mods` directory under `1.21.1-NeoForge_21.1.235`
 - Modify: `docs/reviews/batch-validation.md`
 
-- [ ] Inspect the candidate JAR contents and SHA-256.
-- [ ] Confirm Minecraft is not running and back up any existing JAR with the same mod ID.
-- [ ] Install as `[响应式启动] codex-responsive-loading-1.0.0-2026Reset.jar`.
-- [ ] Confirm the mod ID occurs exactly once in the live directory.
-- [ ] Record the next-start validation procedure and push the repository commits.
+- [x] Inspect the candidate JAR contents and SHA-256.
+- [x] Confirm Minecraft is not running and back up any existing JAR with the same mod ID.
+- [x] Install as `[响应式启动] codex-responsive-loading-1.0.0-2026Reset.jar`.
+- [x] Confirm the mod ID occurs exactly once in the live directory.
+- [x] Record the next-start validation procedure and push the repository commits.

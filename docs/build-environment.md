@@ -32,6 +32,18 @@ Run `tools\build-passive-search-bar.ps1`. It pins only the child build to Oracle
 
 The project may print Gradle 8.14 deprecation notices. They are emitted by the current NeoForge ModDev plugin integration and are not test failures; record them when upgrading Gradle or the plugin, but do not change the Gradle or JDK version during a normal source review.
 
+## Codex Responsive Loading
+
+Run `tools\build-codex-responsive-loading.ps1`. It pins only the child build to JDK 23 at `C:\Program Files\Java\jdk-23` and uses the project's Gradle Wrapper 8.14.2. The normal command is a complete offline build:
+
+```powershell
+& .\tools\build-codex-responsive-loading.ps1 -GradleArgs @('clean', 'build', '--offline', '--no-daemon')
+```
+
+NeoForge ModDev does not automatically place the Minecraft compile artifacts on the custom `test` source set. Keep `sourceSets.test.compileClasspath` and `runtimeClasspath` extended from `sourceSets.main.compileClasspath`; using the full main runtime classpath makes offline tests request the optional `net.neoforged:DevLaunch` development launcher.
+
+The candidate output is `candidates\codex-responsive-loading-1.0.0-2026Reset.jar`. Install it client-side only as `[响应式启动] codex-responsive-loading-1.0.0-2026Reset.jar`; it must not be copied to the dedicated server mod directory.
+
 ## First Dependency Resolution
 
 If a new source project needs dependencies that are not cached, use its pinned JDK and Gradle version for one online resolution. After that, return to `--offline`. Do not switch JDK versions, Gradle versions, proxy settings, and repositories in the same attempt; inspect the first missing dependency or timeout before changing one variable.

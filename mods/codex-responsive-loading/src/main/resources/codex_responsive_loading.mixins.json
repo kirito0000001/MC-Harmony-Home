@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.codex.minecraft.responsiveloading.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ReloadableResourceManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
