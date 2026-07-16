@@ -22,5 +22,6 @@
   "codex_catalogue_bridge.mousetweaks.direction_position": "Inventory Position Aware",
   "codex_catalogue_bridge.mousetweaks.direction_position_inverted": "Inventory Position Aware, Inverted",
   "codex_catalogue_bridge.mousetweaks.order_first": "First to Last",
-  "codex_catalogue_bridge.mousetweaks.order_last": "Last to First"
+  "codex_catalogue_bridge.mousetweaks.order_last": "Last to First",
+  "fml.menu.mods.info.description.mousetweaks": "Adds mouse-driven inventory controls including drag distribution, quick movement, and scroll-wheel transfers. It uses the normal container click protocol and is client-side only."
 }

@@ -120,6 +120,23 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredMouseTweaksOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("mousetweaks").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals("https://www.curseforge.com/minecraft/mc-mods/mouse-tweaks", entry.homepage());
+        assertTrue(entry.issueTracker().contains("title=%5BMouse%20Tweaks%5D%20"));
+        assertEquals(
+            "Adds mouse-driven inventory controls including drag distribution, quick movement, and scroll-wheel transfers. It uses the normal container click protocol and is client-side only.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.mousetweaks").getAsString()
+        );
+        assertEquals(
+            "为背包和容器提供鼠标拖拽分配、快速转移和滚轮移动等操作。\n使用原版容器点击协议，仅客户端需要。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.mousetweaks").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }

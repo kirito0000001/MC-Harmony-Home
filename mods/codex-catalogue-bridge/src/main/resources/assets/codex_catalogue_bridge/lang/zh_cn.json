@@ -22,5 +22,6 @@
   "codex_catalogue_bridge.mousetweaks.direction_position": "根据鼠标所在物品栏决定方向",
   "codex_catalogue_bridge.mousetweaks.direction_position_inverted": "根据鼠标所在物品栏决定方向（反向）",
   "codex_catalogue_bridge.mousetweaks.order_first": "从前到后",
-  "codex_catalogue_bridge.mousetweaks.order_last": "从后到前"
+  "codex_catalogue_bridge.mousetweaks.order_last": "从后到前",
+  "fml.menu.mods.info.description.mousetweaks": "为背包和容器提供鼠标拖拽分配、快速转移和滚轮移动等操作。\n使用原版容器点击协议，仅客户端需要。"
 }

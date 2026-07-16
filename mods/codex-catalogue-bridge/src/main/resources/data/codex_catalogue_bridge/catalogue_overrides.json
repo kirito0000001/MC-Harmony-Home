@@ -34,6 +34,11 @@
       "alias": null,
       "homepage": "https://github.com/squeek502/AppleSkin",
       "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BAppleSkin%5D%20&labels=bug%2Cmod%3Aappleskin"
+    },
+    "mousetweaks": {
+      "alias": null,
+      "homepage": "https://www.curseforge.com/minecraft/mc-mods/mouse-tweaks",
+      "issueTracker": "https://github.com/kirito0000001/MC-Harmony-Home/issues/new?template=mod-bug.yml&title=%5BMouse%20Tweaks%5D%20&labels=bug%2Cmod%3Amousetweaks"
     }
   }
 }
