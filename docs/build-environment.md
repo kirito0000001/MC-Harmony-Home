@@ -26,6 +26,12 @@ JEED's repositories are scoped to their actual owners: Architectury for `dev.arc
 
 `tools\build-jeed-local-patch.ps1` remains available for resource-only iterations. It copies the original JAR, updates only `zh_cn.json` and the version metadata, then emits a SHA-256 hash. It does not compile or alter Java classes.
 
+## Passive Search Bar
+
+Run `tools\build-passive-search-bar.ps1`. It pins only the child build to Oracle JDK 23 at `C:\Program Files\Java\jdk-23` and uses the project's cached Gradle Wrapper 8.14.2 with `build --offline --no-daemon` by default. The source is tracked at `mods\passivesearchbar`; do not build the older temporary copy under the Codex workspace.
+
+The project may print Gradle 8.14 deprecation notices. They are emitted by the current NeoForge ModDev plugin integration and are not test failures; record them when upgrading Gradle or the plugin, but do not change the Gradle or JDK version during a normal source review.
+
 ## First Dependency Resolution
 
 If a new source project needs dependencies that are not cached, use its pinned JDK and Gradle version for one online resolution. After that, return to `--offline`. Do not switch JDK versions, Gradle versions, proxy settings, and repositories in the same attempt; inspect the first missing dependency or timeout before changing one variable.
