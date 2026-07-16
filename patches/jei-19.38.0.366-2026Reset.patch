@@ -1,0 +1,214 @@
+diff --git a/Common/src/main/java/mezz/jei/common/config/file/ConfigSerializer.java b/Common/src/main/java/mezz/jei/common/config/file/ConfigSerializer.java
+index 5f52609..98aed83 100644
+--- a/Common/src/main/java/mezz/jei/common/config/file/ConfigSerializer.java
++++ b/Common/src/main/java/mezz/jei/common/config/file/ConfigSerializer.java
+@@ -17,6 +17,8 @@ import java.util.LinkedHashMap;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Optional;
++import java.util.concurrent.ConcurrentHashMap;
++import java.util.concurrent.ConcurrentMap;
+ import java.util.regex.Matcher;
+ import java.util.regex.Pattern;
+ 
+@@ -25,7 +27,7 @@ public final class ConfigSerializer {
+ 	private static final Pattern commentRegex = Pattern.compile("\\s*#.*");
+ 	private static final Pattern categoryRegex = Pattern.compile("\\[(?<category>\\w+)]\\s*");
+ 	private static final Pattern keyValueRegex = Pattern.compile("\\s*(?<key>\\w+)\\s*=\\s*(?<value>.*)");
+-	private static final Map<Path, FileTime> saveTimes = new HashMap<>();
++	private static final ConcurrentMap<Path, FileTime> saveTimes = new ConcurrentHashMap<>();
+ 
+ 	private static String getLineErrorString(Path path, int lineNumber, String line, String errorMessage) {
+ 		return """
+diff --git a/Common/src/main/resources/assets/jei/lang/en_us.json b/Common/src/main/resources/assets/jei/lang/en_us.json
+index 90ccdde..8d4c7ec 100644
+--- a/Common/src/main/resources/assets/jei/lang/en_us.json
++++ b/Common/src/main/resources/assets/jei/lang/en_us.json
+@@ -313,6 +313,7 @@
+   "jei.message.config.folder": "Or click here to open the JEI config folder instead",
+   "jei.message.copy.recipe.id.success": "The following recipe ID was copied to the clipboard: %s",
+   "jei.message.copy.recipe.id.failure": "Failed to copy the recipe ID to the clipboard because the ID is unknown",
++  "jei.message.search.prompt": "Type to search",
+   "jei.message.server.recipe.sync.error": "This server sent recipes to JEI, but none were usable. JEI cannot show this server's recipes. Check the server's JEI setup, datapacks, and recipe mods.",
+   "jei.message.server.recipe.sync.vanilla": "This is a vanilla server. JEI is showing default recipes from your client, which may be different if the server uses datapacks. Install Forge, NeoForge, or Fabric on the server, along with JEI, to show the server's recipes correctly.",
+   "jei.message.server.recipe.sync.unavailable": "This %s server does not provide recipes to JEI. JEI is showing default recipes from your client, which may be different on the server.",
+diff --git a/Common/src/main/resources/assets/jei/lang/zh_cn.json b/Common/src/main/resources/assets/jei/lang/zh_cn.json
+index 448a437..c734ee0 100644
+--- a/Common/src/main/resources/assets/jei/lang/zh_cn.json
++++ b/Common/src/main/resources/assets/jei/lang/zh_cn.json
+@@ -310,6 +310,7 @@
+   "jei.message.config.folder": "或点击此处打开JEI配置文件夹",
+   "jei.message.copy.recipe.id.success": "已复制配方ID到剪贴板：%s",
+   "jei.message.copy.recipe.id.failure": "复制配方ID到剪贴板失败，配方ID未知",
++  "jei.message.search.prompt": "输入关键词搜索",
+ 
+   "_comment": "Key Names",
+   "jei.key.combo.shift": "SHIFT+%s",
+diff --git a/Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilter.java b/Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilter.java
+index 2cdc90f..ed856dd 100644
+--- a/Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilter.java
++++ b/Gui/src/main/java/mezz/jei/gui/ingredients/IngredientFilter.java
+@@ -267,16 +267,14 @@ public class IngredientFilter implements
+ 			.filter(s -> !s.isEmpty())
+ 			.toList();
+ 
+-		Stream<IListElement<?>> elementStream;
+ 		if (searchTokens.isEmpty()) {
+-			elementStream = this.elementSearch.getAllIngredients()
+-				.parallelStream();
+-		} else {
+-			elementStream = searchTokens.stream()
++			return Stream.empty();
++		}
++
++		Stream<IListElement<?>> elementStream = searchTokens.stream()
+ 				.map(this::getSearchResults)
+ 				.flatMap(Set::stream)
+ 				.distinct();
+-		}
+ 
+ 		return elementStream
+ 			.filter(IListElement::isVisible)
+diff --git a/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlay.java b/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlay.java
+index c8be051..42f13eb 100644
+--- a/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlay.java
++++ b/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlay.java
+@@ -28,6 +28,7 @@ import mezz.jei.gui.overlay.bookmarks.history.LookupHistoryOverlay;
+ import net.minecraft.client.Minecraft;
+ import net.minecraft.client.gui.GuiGraphics;
+ import net.minecraft.client.gui.screens.Screen;
++import net.minecraft.network.chat.Component;
+ import org.jetbrains.annotations.Nullable;
+ 
+ import java.util.Collections;
+@@ -124,9 +125,16 @@ public class IngredientListOverlay implements IIngredientListOverlay, IRecipeFoc
+ 
+ 	public void drawScreen(Minecraft minecraft, GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+ 		updateScreenPropertiesIfDirty();
+-		if (isListDisplayed()) {
++		boolean listDisplayed = isListDisplayed();
++		if (listDisplayed) {
+ 			this.searchField.renderWidget(guiGraphics, mouseX, mouseY, partialTicks);
+ 			this.contents.draw(minecraft, guiGraphics, mouseX, mouseY, partialTicks);
++			if (IngredientListOverlaySearchPrompt.shouldDraw(listDisplayed, this.contents.isEmpty())) {
++				var area = this.contents.getBackgroundArea();
++				int centerX = area.x() + area.width() / 2;
++				int centerY = area.y() + (area.height() - minecraft.font.lineHeight) / 2;
++				guiGraphics.drawCenteredString(minecraft.font, Component.translatable("jei.message.search.prompt"), centerX, centerY, 0xFFA0A0A0);
++			}
+ 		}
+ 		if (this.controller.hasValidScreen()) {
+ 			this.configButton.draw(guiGraphics, mouseX, mouseY, partialTicks);
+diff --git a/NeoForge/src/test/java/mezz/jei/test/IngredientFilterTest.java b/NeoForge/src/test/java/mezz/jei/test/IngredientFilterTest.java
+index f6e7ad0..46adeed 100644
+--- a/NeoForge/src/test/java/mezz/jei/test/IngredientFilterTest.java
++++ b/NeoForge/src/test/java/mezz/jei/test/IngredientFilterTest.java
+@@ -108,8 +108,13 @@ public class IngredientFilterTest {
+ 	@Test
+ 	public void testSetup() {
+ 		Assertions.assertNotNull(ingredientFilter);
++		Assertions.assertNotNull(filterTextSource);
+ 
+ 		List<?> ingredientList = ingredientFilter.getElements();
++		Assertions.assertTrue(ingredientList.isEmpty());
++
++		filterTextSource.setFilterText("Test Ingredient Display Name");
++		ingredientList = ingredientFilter.getElements();
+ 		Assertions.assertEquals(TestPlugin.BASE_INGREDIENT_COUNT, ingredientList.size());
+ 	}
+ 
+@@ -168,6 +173,7 @@ public class IngredientFilterTest {
+ 		Assertions.assertNotNull(ingredientFilter);
+ 		Assertions.assertNotNull(baseList);
+ 		Assertions.assertNotNull(editModeConfig);
++		Assertions.assertNotNull(filterTextSource);
+ 
+ 		IListElementInfo<?> elementInfo = baseList.getFirst();
+ 		ITypedIngredient<?> typedIngredient = elementInfo.getTypedIngredient();
+@@ -178,6 +184,7 @@ public class IngredientFilterTest {
+ 
+ 		ingredientFilter.updateHidden();
+ 
++		filterTextSource.setFilterText("Test Ingredient Display Name");
+ 		List<?> ingredientList = ingredientFilter.getElements();
+ 		Assertions.assertEquals(TestPlugin.BASE_INGREDIENT_COUNT - 1, ingredientList.size());
+ 	}
+@@ -215,7 +222,7 @@ public class IngredientFilterTest {
+ 			Assertions.assertTrue(testIngredients.contains(testIngredient));
+ 		}
+ 
+-		filterTextSource.setFilterText("");
++		filterTextSource.setFilterText("Test Ingredient Display Name");
+ 		List<TestIngredient> filteredIngredients = ingredientFilter.getFilteredIngredients(TestIngredient.TYPE);
+ 		Assertions.assertEquals(TestPlugin.BASE_INGREDIENT_COUNT + EXTRA_INGREDIENT_COUNT, filteredIngredients.size());
+ 		for (TestIngredient testIngredient : filteredIngredients) {
+@@ -240,7 +247,7 @@ public class IngredientFilterTest {
+ 
+ 		ingredientManager.removeIngredientsAtRuntime(TestIngredient.TYPE, ingredientsToRemove);
+ 
+-		filterTextSource.setFilterText("");
++		filterTextSource.setFilterText("Test Ingredient Display Name");
+ 		List<TestIngredient> filteredIngredients = ingredientFilter.getFilteredIngredients(TestIngredient.TYPE);
+ 		Assertions.assertEquals(TestPlugin.BASE_INGREDIENT_COUNT, filteredIngredients.size());
+ 		for (TestIngredient testIngredient : filteredIngredients) {
+diff --git a/Common/src/test/java/mezz/jei/test/ConfigSerializerTest.java b/Common/src/test/java/mezz/jei/test/ConfigSerializerTest.java
+new file mode 100644
+index 0000000..a3c7b8f
+--- /dev/null
++++ b/Common/src/test/java/mezz/jei/test/ConfigSerializerTest.java
+@@ -0,0 +1,17 @@
++package mezz.jei.test;
++
++import mezz.jei.common.config.file.ConfigSerializer;
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++
++import java.lang.reflect.Field;
++import java.util.concurrent.ConcurrentMap;
++
++public class ConfigSerializerTest {
++	@Test
++	public void saveTimesUsesConcurrentMap() throws ReflectiveOperationException {
++		Field saveTimes = ConfigSerializer.class.getDeclaredField("saveTimes");
++		saveTimes.setAccessible(true);
++		Assertions.assertInstanceOf(ConcurrentMap.class, saveTimes.get(null));
++	}
++}
+diff --git a/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlaySearchPrompt.java b/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlaySearchPrompt.java
+new file mode 100644
+index 0000000..118e77b
+--- /dev/null
++++ b/Gui/src/main/java/mezz/jei/gui/overlay/IngredientListOverlaySearchPrompt.java
+@@ -0,0 +1,11 @@
++package mezz.jei.gui.overlay;
++
++final class IngredientListOverlaySearchPrompt {
++	private IngredientListOverlaySearchPrompt() {
++
++	}
++
++	static boolean shouldDraw(boolean listDisplayed, boolean contentsEmpty) {
++		return listDisplayed && contentsEmpty;
++	}
++}
+diff --git a/Gui/src/test/java/mezz/jei/gui/overlay/IngredientListOverlayTest.java b/Gui/src/test/java/mezz/jei/gui/overlay/IngredientListOverlayTest.java
+new file mode 100644
+index 0000000..4bd2d03
+--- /dev/null
++++ b/Gui/src/test/java/mezz/jei/gui/overlay/IngredientListOverlayTest.java
+@@ -0,0 +1,15 @@
++package mezz.jei.gui.overlay;
++
++import org.junit.jupiter.api.Test;
++
++import static org.junit.jupiter.api.Assertions.assertFalse;
++import static org.junit.jupiter.api.Assertions.assertTrue;
++
++public class IngredientListOverlayTest {
++	@Test
++	public void searchPromptOnlyDrawsForAnEmptyDisplayedList() {
++		assertTrue(IngredientListOverlaySearchPrompt.shouldDraw(true, true));
++		assertFalse(IngredientListOverlaySearchPrompt.shouldDraw(false, true));
++		assertFalse(IngredientListOverlaySearchPrompt.shouldDraw(true, false));
++	}
++}
