@@ -7,7 +7,7 @@
 - 文件：`jei-1.21.1-neoforge-19.38.0.366-2026Reset.jar`
 - 位置：仅在本地审查工作区的 `mods/jei/NeoForge/build/libs/` 中。
 - `META-INF/neoforge.mods.toml` 内版本：`19.38.0.366-2026Reset`。
-- SHA-256：`A02655825FFB9DD85BD7BACBE3EE69B33DD95E7BC00B380BCCA107D19427A0FB`。
+- SHA-256：`4FA2188BCC91015C5A3D3247E5DD89719B4C239C2F1357A76D3D52DD9C3C8F1C`。
 - 已确认包内含 `en_us.json` 与 `zh_cn.json` 的 `jei.message.search.prompt` 键。
 - 未安装到正在使用的 Minecraft 实例。
 
