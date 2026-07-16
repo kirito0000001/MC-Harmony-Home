@@ -3,5 +3,6 @@
   "fml.menu.mods.info.description.catalogue": "Replaces the NeoForge mod list with a searchable catalogue for viewing mod details, links, filters, favorites, and update status.",
   "fml.menu.mods.info.description.jeed": "Adds JEI, REI, and EMI pages that explain status effects, their sources, and their behavior.",
   "fml.menu.mods.info.description.jei": "Provides searchable item, block, recipe, and usage lookup for Minecraft and installed mods. Supports recipe transfer, bookmarks, and configurable item management tools.",
-  "fml.menu.mods.info.description.jeresources": "Adds JEI pages for resource generation, mob drops, chest loot, village trades, and world-generation information. It only displays information and does not modify the world or loot."
+  "fml.menu.mods.info.description.jeresources": "Adds JEI pages for resource generation, mob drops, chest loot, village trades, and world-generation information. It only displays information and does not modify the world or loot.",
+  "fml.menu.mods.info.description.jecharacters": "Adds Pinyin and Pinyin-initial search matching to JEI, and extends it to supported search interfaces from other installed mods. It is a client-side search enhancement."
 }

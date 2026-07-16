@@ -86,6 +86,23 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredJecOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("jecharacters").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals("https://github.com/Towdium/JustEnoughCharacters", entry.homepage());
+        assertTrue(entry.issueTracker().contains("title=%5BJEC%5D%20"));
+        assertEquals(
+            "Adds Pinyin and Pinyin-initial search matching to JEI, and extends it to supported search interfaces from other installed mods. It is a client-side search enhancement.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.jecharacters").getAsString()
+        );
+        assertEquals(
+            "为 JEI 提供全拼与拼音首字母检索，并为已兼容的其他模组搜索界面扩展同样的匹配方式。\n仅客户端生效。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.jecharacters").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }
