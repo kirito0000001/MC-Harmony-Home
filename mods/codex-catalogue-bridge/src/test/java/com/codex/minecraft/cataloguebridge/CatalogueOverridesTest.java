@@ -49,6 +49,23 @@ class CatalogueOverridesTest {
     }
 
     @Test
+    void configuredJeiOverrideExposesOfficialPageBugTemplateAndBilingualDescription() {
+        CatalogueOverride entry = CatalogueOverrides.forMod("jei").orElseThrow();
+
+        assertTrue(entry.alias().isEmpty());
+        assertEquals("https://www.curseforge.com/minecraft/mc-mods/jei", entry.homepage());
+        assertTrue(entry.issueTracker().contains("title=%5BJEI%5D%20"));
+        assertEquals(
+            "Provides searchable item, block, recipe, and usage lookup for Minecraft and installed mods. Supports recipe transfer, bookmarks, and configurable item management tools.",
+            readLanguage("en_us").get("fml.menu.mods.info.description.jei").getAsString()
+        );
+        assertEquals(
+            "为原版与已安装模组提供物品、方块、配方和用途的搜索查询，\n支持配方转移、书签与可配置的物品管理功能。",
+            readLanguage("zh_cn").get("fml.menu.mods.info.description.jei").getAsString()
+        );
+    }
+
+    @Test
     void unknownModsDoNotReceiveOverrides() {
         assertTrue(CatalogueOverrides.forMod("minecraft").isEmpty());
     }

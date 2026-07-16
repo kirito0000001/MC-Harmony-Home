@@ -10,6 +10,7 @@
 - SHA-256：`4FA2188BCC91015C5A3D3247E5DD89719B4C239C2F1357A76D3D52DD9C3C8F1C`。
 - 已确认包内含 `en_us.json` 与 `zh_cn.json` 的 `jei.message.search.prompt` 键。
 - 未安装到正在使用的 Minecraft 实例。
+- Catalogue 条目依赖本地 `codex-catalogue-bridge-1.0.3-2026Reset` 候选；该 Bridge 也未替换游戏中的 `1.0.2-2026Reset`。
 
 ## 批次验证要求
 
@@ -19,7 +20,7 @@
 - 背包或容器界面打开后，未输入关键词时右侧物品面板为空，并显示“输入关键词搜索”。
 - 输入物品名、模组名或已有 JEI 搜索语法后，结果、分页、收藏、配方和用途查询正常。
 - 修改 JEI 配置或退出世界时，没有配置保存、文件监视或线程相关错误。
-- Catalogue 正确显示 JEI 的中英文介绍、网页链接和问题反馈链接。
+- 安装对应的 Bridge 候选后，Catalogue 正确显示 JEI 的中英文介绍、官方网页链接和带 `[JEI]` 前缀的问题反馈链接。
 
 ## 发布边界
 
